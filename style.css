@@ -21,7 +21,6 @@ section{
 }
 
 
-
 nav{
   z-index: 1000;
   position: fixed;
@@ -58,6 +57,78 @@ nav span{
   gap: 2rem;
 }
 
+.hamburger {
+  flex-direction: column;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.hamburger .line {
+  width: 20px;
+  height: 3px;
+  background-color: var(--dark);
+  margin: 2px 0;
+  border-radius: 10px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  z-index: 130;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  width: 89%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.nav-menu li a {
+  color: var(--dark);
+  font-size: 2rem;
+  display: block;
+}
+
+.hamburger {
+  display: flex;
+}
+
+.nav-menu {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: -120%;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  background-color: var(--light);
+  justify-content: center;
+  align-items: center;
+  transition: left 0.3s ease;
+}
+
+.nav-menu.active {
+  left: 0;
+}
+.hamburger.active .line:nth-child(1) {
+  transition: .3s;
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .line:nth-child(2) {
+  transition: .3s;
+  opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+  transition: .3s;
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 
 #hero-section{
   background-color: var(--light);
@@ -640,6 +711,10 @@ body > .__separator:nth-of-type(4){
     font-size: 1rem;
   }
 
+  nav{
+    padding: 3rem 2rem;
+  }
+
   nav a{
     display: none;
   }
@@ -765,6 +840,9 @@ body > .__separator:nth-of-type(4){
 @media only screen and (max-width: 382px){
   :root{
     font-size: 12px;
+  }
+  nav{
+    padding: 3rem 2rem;
   }
   .hero-container{
     justify-content: center;
